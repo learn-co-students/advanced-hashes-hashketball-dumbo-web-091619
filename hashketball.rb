@@ -134,35 +134,18 @@ end
 #end
 
 def num_points_scored(player)
-  game_hash.reduce ({}) do |memo, (key, value)| 
-    a = game_hash[key]
-    b = a[:players]
-    b.each_pair do |key, value|
-        if key == player
-          b[key].each_pair do |key, value|
-            return value if key == :points
-          end
-        end
-      end
-    end
-  end
+  player_stats = player_stats(player)
+  player_stats[:points]
+end
+
 
 def shoe_size(player)
-  game_hash.reduce ({}) do |memo, (key, value)| 
-    a = game_hash[key]
-    b = a[:players]
-    b.each_pair do |key, value|
-        if key == player
-          b[key].each_pair do |key, value|
-            return value if key == :shoe
-          end
-        end
-      end
-    end
-  end
+player_stats = player_stats(player)
+player_stats[:shoe]
+end
   
 def team_colors(team)
-  game_hash.reduce ({}) do |memo, (key, value)| 
+game_hash.reduce ({}) do |memo, (key, value)| 
       a = game_hash[key]
       color = a[:colors]
         name = a[:team_name]
