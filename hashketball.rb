@@ -5,15 +5,15 @@ def game_hash
             team_name: "Brooklyn Nets",
             colors: ["Black", "White"],
             info: {
-                "Bismack Biyombo" => {
+                "Alan Anderson" => {
                                         :number => 0,
                                         :shoe => 16,
-                                        :points => 12,
-                                        :rebounds => 4,
-                                        :assists => 7,
-                                        :steals => 22,
-                                        :blocks => 15,
-                                        :slam_dunks => 10
+                                        :points => 22,
+                                        :rebounds => 12,
+                                        :assists => 12,
+                                        :steals => 3,
+                                        :blocks => 1,
+                                        :slam_dunks => 1
                                     },
                 "Mason Plumlee" => {
                                         :number => 1,
@@ -62,15 +62,15 @@ def game_hash
             team_name: "Charlotte Hornets",
             colors: ["Turquoise", "Purple"],
             info: {
-                "Alan Anderson" => {
+                "Bismack Biyombo" => {
                                         :number => 0,
                                         :shoe => 16,
-                                        :points => 22,
-                                        :rebounds => 12,
-                                        :assists => 12,
-                                        :steals => 3,
-                                        :blocks => 1,
-                                        :slam_dunks => 1
+                                        :points => 12,
+                                        :rebounds => 4,
+                                        :assists => 7,
+                                        :steals => 22,
+                                        :blocks => 15,
+                                        :slam_dunks => 10
                                     },
                 "DeSagna Diop" => {
                                         :number => 2,
