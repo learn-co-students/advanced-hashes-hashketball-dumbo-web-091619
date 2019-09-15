@@ -4,7 +4,7 @@ def game_hash
         :home => {
             team_name: "Brooklyn Nets",
             colors: ["Black", "White"],
-            players: {
+            info: {
                 "Bismack Biyombo" => {
                                         :number => 0,
                                         :shoe => 16,
@@ -61,7 +61,7 @@ def game_hash
         :away => {
             team_name: "Charlotte Hornets",
             colors: ["Turquoise", "Purple"],
-            players: {
+            info: {
                 "Alan Anderson" => {
                                         :number => 0,
                                         :shoe => 16,
@@ -119,8 +119,8 @@ end
 
 def num_points_scored(name)
     hash = game_hash
-    hash.each do |home_or_abroad, players|
-        players.each do |player, data|
+    hash.each do |home_or_abroad, info|
+        info.each do |player, data|
             if data.include?(name)
                 return hash[home_or_abroad][player][name][:points]
             end
@@ -130,8 +130,8 @@ end
 
 def shoe_size(name)
     hash = game_hash
-    hash.each do |home_or_abroad, players|
-        players.each do |player, data|
+    hash.each do |home_or_abroad, info|
+        info.each do |player, data|
             if data.include?(name)
                 return hash[home_or_abroad][player][name][:shoe]
             end
@@ -189,9 +189,9 @@ end
 def player_stats(name)
         hash = game_hash
         hash.each do |home_or_abroad, team_names|
-            team_names.each do |players, values|
+            team_names.each do |info, values|
                 if values.include?(name)
-                    return hash[home_or_abroad][players][name] #returns all the players of the player
+                    return hash[home_or_abroad][info][name] #returns all the info of the player
                 end
             end
         end
@@ -202,8 +202,8 @@ def big_shoe_rebounds
     hash = game_hash
     player_name = ""
     shoe_size = 0
-    hash.each do |home_or_abroad, players|
-      players.each do |keys, values|
+    hash.each do |home_or_abroad, info|
+      info.each do |keys, values|
         if values.class == Hash
           values.each do |player, stats|
               stats.each do |key, val|
@@ -225,13 +225,19 @@ def most_points_scored
     hash = game_hash
     highest_point = 0
     highest_scorer = ""
-    hash.each do |home_or_abroad, players|
-        players.each do |player, data|
-            points = hash[home_or_abroad][player][:points]
-            name = hash[home_or_abroad][player]
-            if point > highest_point
-                highest_point = point
-                highest_scorer = name
+    hash.each do |home_or_abroad, info|
+        info.each do |keys, values|
+            if values.class == Hash
+                values.each do |player, stats|
+                    stats.each do |key, val|
+                        if key == :points
+                            if val > highest_point
+                                highest_point = val
+                                highest_scorer = player
+                            end
+                        end
+                    end
+                end
             end
         end
     end
